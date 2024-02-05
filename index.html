@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Random Hacker News Front Page</title>
+    </head>
+    <body>
+        <script>
+            // Get the current date and first date of news on HN
+            const currentDate = new Date();
+            const endDate = new Date('2007-02-19');
+
+            // Calculate the time difference in milliseconds
+            const timeDifference = currentDate.getTime() - endDate.getTime();
+            const randomMilliseconds = Math.floor(Math.random() * timeDifference);
+            const randomDate = new Date(currentDate.getTime() - randomMilliseconds);
+
+            // Extract year, month, and day components
+            const year = randomDate.getFullYear();
+            const month = String(randomDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(randomDate.getDate()).padStart(2, '0');
+
+			// Create final url and add it to the browsers history
+            const targetUrl = `https://news.ycombinator.com/front?day=${year}-${month}-${day}`;
+			window.history.pushState({}, document.title, '');
+            window.location.href = targetUrl;
+        </script>
+    </body>
+</html>
