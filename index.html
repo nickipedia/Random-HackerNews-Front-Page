@@ -2,8 +2,30 @@
 <html lang="en">
     <head>
         <title>Random Hacker News Front Page</title>
+        <style>
+            :root {
+                --purple: #bb86fc;
+                --gray: #252525;
+                --white: #fbfbf2;
+            }
+            body {
+                color: var(--white);
+                background-color: var(--gray);
+                padding: 1em;
+                margin: auto;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                max-width: 700px;
+                text-align: left;
+                line-height: 1.5;
+            }
+        </style>
     </head>
     <body>
+        <h1 style="margin-bottom: 0;">Explore The Hacker News Archives</h1>
+        <h3 style="margin-top: 0;">Redirecting to a random date's front page.</h3>
+        <p style="margin-bottom: 0;">Refresh this page to get a new day.</p>
+        <a style="color: var(--purple);" href="https://nickipedia.dev/">More projects</a>
         <script>
             // Get the current date and first date of news on HN
             const currentDate = new Date();
@@ -21,8 +43,9 @@
 
             // Create final url and add it to the browsers history
             const targetUrl = `https://news.ycombinator.com/front?day=${year}-${month}-${day}`;
-            window.history.pushState({}, document.title, '');
-            window.location.href = targetUrl;
+            window.open(targetUrl, '_blank');
         </script>
+
     </body>
+
 </html>
