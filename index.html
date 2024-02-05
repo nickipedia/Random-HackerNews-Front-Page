@@ -19,9 +19,9 @@
             const month = String(randomDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
             const day = String(randomDate.getDate()).padStart(2, '0');
 
-			// Create final url and add it to the browsers history
+            // Create final url and add it to the browsers history
             const targetUrl = `https://news.ycombinator.com/front?day=${year}-${month}-${day}`;
-			window.history.pushState({}, document.title, '');
+            window.history.pushState({}, document.title, '');
             window.location.href = targetUrl;
         </script>
     </body>
